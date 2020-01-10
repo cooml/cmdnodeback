@@ -17,15 +17,17 @@ module.exports = class extends think.Controller {
       // console.log(this.isAjax());
       // console.log(this.post());
       // 验证码 钩子
-      const signinBefore = await this.hook('signinBefore');
-      if (signinBefore === 'no') {
-        const error = this.controller('cmswing/error');
-        return error.noAction('验证码不正确');
-      }
-
+      //-------------------验证码------
+      // const signinBefore = await this.hook('signinBefore');
+      // if (signinBefore === 'no') {
+      //   const error = this.controller('cmswing/error');
+      //   return error.noAction('验证码不正确');
+      // }
+      //-------------------验证码结束------
       const username = this.post('username');
       let password = this.post('password');
       password = encryptPassword(password);
+      console.log("可以修改密码的地方----------"+password);
       const res = await this.model('cmswing/member').signin(username, password, this.ip, 1, 1);
       if (res.uid > 0) {
         // 记录用户登录行为
