@@ -25,7 +25,6 @@ node_modules/
 
 # IDE config
 .idea
-.vscode
 
 # output
 output/
@@ -45,7 +44,6 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
-/.vscode/
 /package-lock.json
 
 # private/pingpp/cmswing_rsa_private_key.pem
